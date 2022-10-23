@@ -1,6 +1,7 @@
 package Animals.Birds.NonFlying;
 
 import Animals.Birds.Bird;
+import Animals.Birds.Flying.Flying;
 import Animals.ValidationUtils;
 
 import java.util.Objects;
@@ -46,5 +47,25 @@ public class NonFlying extends Bird {
     @Override
     public int hashCode() {
         return Objects.hash(moveType, livingEnvironment, title, age);
+    }
+
+    public static boolean checkForUnique(NonFlying[] nonFlyings) {
+        boolean areUnique = true;
+        for (int i = 0; i < nonFlyings.length - 1; i++) {
+            for (int j = i + 1; j < nonFlyings.length; j++) {
+                if (!nonFlyings[i].equals(nonFlyings[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
     }
 }

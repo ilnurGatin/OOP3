@@ -28,11 +28,11 @@ public class Predator extends Mammals {
     @Override
     public String toString() {
         return "Predator{" +
-                "typeOfFood='" + typeOfFood + '\'' +
-                ", livingEnvironment='" + livingEnvironment + '\'' +
-                ", movingSpeed=" + movingSpeed +
-                ", title='" + title + '\'' +
-                ", age=" + age +
+                "typeOfFood='" + getTypeOfFood() + '\'' +
+                ", livingEnvironment='" + getLivingEnvironment() + '\'' +
+                ", movingSpeed=" + getTypeOfFood() +
+                ", title='" + getTitle() + '\'' +
+                ", age=" + getAge() +
                 '}';
     }
 
@@ -48,5 +48,25 @@ public class Predator extends Mammals {
     @Override
     public int hashCode() {
         return Objects.hash(typeOfFood);
+    }
+
+    public static boolean checkForUnique(Predator[] predators) {
+        boolean areUnique = true;
+        for (int i = 0; i < predators.length - 1; i++) {
+            for (int j = i + 1; j < predators.length; j++) {
+                if (!predators[i].equals(predators[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
     }
 }

@@ -51,4 +51,24 @@ public class Herbivorous extends Mammals {
     public int hashCode() {
         return Objects.hash(typeOfFood, title, age, movingSpeed, livingEnvironment);
     }
+
+    public static boolean checkForUnique(Herbivorous[] herbivorous) {
+        boolean areUnique = true;
+        for (int i = 0; i < herbivorous.length - 1; i++) {
+            for (int j = i + 1; j < herbivorous.length; j++) {
+                if (!herbivorous[i].equals(herbivorous[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
+    }
 }

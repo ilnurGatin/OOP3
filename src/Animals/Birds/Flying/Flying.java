@@ -1,5 +1,6 @@
 package Animals.Birds.Flying;
 
+import Animals.Amphibious.Amphibious;
 import Animals.Birds.Bird;
 import Animals.ValidationUtils;
 
@@ -9,7 +10,7 @@ public class Flying extends Bird {
 
     private String moveType;
 
-    protected Flying(String title, int age, String livingEnvironment, String moveType) {
+    public Flying(String title, int age, String livingEnvironment, String moveType) {
         super(title, age, livingEnvironment);
 
     }
@@ -47,5 +48,25 @@ public class Flying extends Bird {
     @Override
     public int hashCode() {
         return Objects.hash(moveType, title, age, livingEnvironment);
+    }
+
+    public static boolean checkForUnique(Flying[] flyings) {
+        boolean areUnique = true;
+        for (int i = 0; i < flyings.length - 1; i++) {
+            for (int j = i + 1; j < flyings.length; j++) {
+                if (!flyings[i].equals(flyings[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
     }
 }

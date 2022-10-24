@@ -21,8 +21,36 @@ public class Predator extends Mammals {
         setTypeOfFood(typeOfFood);
     }
 
+    public void eat() {
+        System.out.println("Eat " + typeOfFood);
+    }
+
+    public void go() {
+        System.out.println("Go to" + getLivingEnvironment());
+    }
+
     public void hunt() {
         System.out.println("Охочусь на других травоядных");
+    }
+
+    public static boolean checkForUnique(Predator[] predators) {
+        boolean areUnique = true;
+        for (int i = 0; i < predators.length - 1; i++) {
+            for (int j = i + 1; j < predators.length; j++) {
+                if (!predators[i].equals(predators[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
     }
 
     @Override
@@ -48,25 +76,5 @@ public class Predator extends Mammals {
     @Override
     public int hashCode() {
         return Objects.hash(typeOfFood);
-    }
-
-    public static boolean checkForUnique(Predator[] predators) {
-        boolean areUnique = true;
-        for (int i = 0; i < predators.length - 1; i++) {
-            for (int j = i + 1; j < predators.length; j++) {
-                if (!predators[i].equals(predators[j])) {
-                    continue;
-                } else {
-                    areUnique = false;
-                    break;
-                }
-            }
-            if (areUnique) {
-                continue;
-            } else {
-                System.out.println();
-            }
-        }
-        return areUnique;
     }
 }

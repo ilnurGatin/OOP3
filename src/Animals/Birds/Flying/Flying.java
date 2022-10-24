@@ -24,7 +24,36 @@ public class Flying extends Bird {
     }
 
     public void fly() {
-        System.out.println("Летаю");
+        System.out.println("Взлетаю");
+    }
+
+    public void eat() {
+        System.out.println("Eat insects");
+    }
+
+    public void go() {
+        System.out.println("Разбегаюсь и ...");
+        fly();
+    }
+
+    public static boolean checkForUnique(Flying[] flyings) {
+        boolean areUnique = true;
+        for (int i = 0; i < flyings.length - 1; i++) {
+            for (int j = i + 1; j < flyings.length; j++) {
+                if (!flyings[i].equals(flyings[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
     }
 
     @Override
@@ -48,25 +77,5 @@ public class Flying extends Bird {
     @Override
     public int hashCode() {
         return Objects.hash(moveType, title, age, livingEnvironment);
-    }
-
-    public static boolean checkForUnique(Flying[] flyings) {
-        boolean areUnique = true;
-        for (int i = 0; i < flyings.length - 1; i++) {
-            for (int j = i + 1; j < flyings.length; j++) {
-                if (!flyings[i].equals(flyings[j])) {
-                    continue;
-                } else {
-                    areUnique = false;
-                    break;
-                }
-            }
-            if (areUnique) {
-                continue;
-            } else {
-                System.out.println();
-            }
-        }
-        return areUnique;
     }
 }

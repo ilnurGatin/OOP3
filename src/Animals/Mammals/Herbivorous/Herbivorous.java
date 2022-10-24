@@ -26,6 +26,34 @@ public class Herbivorous extends Mammals {
         System.out.println("Пасусь на лугу");
     }
 
+    public void eat() {
+        System.out.println("Eat " + typeOfFood);
+    }
+
+    public void go() {
+        System.out.println("Go to " + getLivingEnvironment());
+    }
+
+    public static boolean checkForUnique(Herbivorous[] herbivorous) {
+        boolean areUnique = true;
+        for (int i = 0; i < herbivorous.length - 1; i++) {
+            for (int j = i + 1; j < herbivorous.length; j++) {
+                if (!herbivorous[i].equals(herbivorous[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
+    }
+
     @Override
     public String toString() {
         return "Herbivorous{" +
@@ -50,25 +78,5 @@ public class Herbivorous extends Mammals {
     @Override
     public int hashCode() {
         return Objects.hash(typeOfFood, title, age, movingSpeed, livingEnvironment);
-    }
-
-    public static boolean checkForUnique(Herbivorous[] herbivorous) {
-        boolean areUnique = true;
-        for (int i = 0; i < herbivorous.length - 1; i++) {
-            for (int j = i + 1; j < herbivorous.length; j++) {
-                if (!herbivorous[i].equals(herbivorous[j])) {
-                    continue;
-                } else {
-                    areUnique = false;
-                    break;
-                }
-            }
-            if (areUnique) {
-                continue;
-            } else {
-                System.out.println();
-            }
-        }
-        return areUnique;
     }
 }

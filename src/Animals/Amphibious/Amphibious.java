@@ -37,6 +37,26 @@ public class Amphibious extends Animals {
         System.out.println("Охочусь из засады");
     }
 
+    public static boolean checkForUnique(Amphibious[] amphibious) {
+        boolean areUnique = true;
+        for (int i = 0; i < amphibious.length - 1; i++) {
+            for (int j = i + 1; j < amphibious.length; j++) {
+                if (!amphibious[i].equals(amphibious[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
+    }
+
     @Override
     public String toString() {
         return "Amphibious{" +
@@ -58,25 +78,5 @@ public class Amphibious extends Animals {
     @Override
     public int hashCode() {
         return Objects.hash(livingEnvironment, title, age);
-    }
-
-    public static boolean checkForUnique(Amphibious[] amphibious) {
-        boolean areUnique = true;
-        for (int i = 0; i < amphibious.length - 1; i++) {
-            for (int j = i + 1; j < amphibious.length; j++) {
-                if (!amphibious[i].equals(amphibious[j])) {
-                    continue;
-                } else {
-                    areUnique = false;
-                    break;
-                }
-            }
-            if (areUnique) {
-                continue;
-            } else {
-                System.out.println();
-            }
-        }
-        return areUnique;
     }
 }

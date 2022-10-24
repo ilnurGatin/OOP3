@@ -26,6 +26,35 @@ public class NonFlying extends Bird {
         System.out.println("Хожу, бегаю");
     }
 
+    public void eat() {
+        System.out.println("Just eat");
+    }
+
+    public void go() {
+        walk();
+        System.out.println("Потом опять хожу и опять бегаю");
+    }
+
+    public static boolean checkForUnique(NonFlying[] nonFlyings) {
+        boolean areUnique = true;
+        for (int i = 0; i < nonFlyings.length - 1; i++) {
+            for (int j = i + 1; j < nonFlyings.length; j++) {
+                if (!nonFlyings[i].equals(nonFlyings[j])) {
+                    continue;
+                } else {
+                    areUnique = false;
+                    break;
+                }
+            }
+            if (areUnique) {
+                continue;
+            } else {
+                System.out.println();
+            }
+        }
+        return areUnique;
+    }
+
     @Override
     public String toString() {
         return "NonFlying{" +
@@ -47,25 +76,5 @@ public class NonFlying extends Bird {
     @Override
     public int hashCode() {
         return Objects.hash(moveType, livingEnvironment, title, age);
-    }
-
-    public static boolean checkForUnique(NonFlying[] nonFlyings) {
-        boolean areUnique = true;
-        for (int i = 0; i < nonFlyings.length - 1; i++) {
-            for (int j = i + 1; j < nonFlyings.length; j++) {
-                if (!nonFlyings[i].equals(nonFlyings[j])) {
-                    continue;
-                } else {
-                    areUnique = false;
-                    break;
-                }
-            }
-            if (areUnique) {
-                continue;
-            } else {
-                System.out.println();
-            }
-        }
-        return areUnique;
     }
 }

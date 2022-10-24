@@ -53,12 +53,5 @@ public class Main {
         Flying falcon = new Flying("Falcon", 2, "Mountains", "fly");
         Flying[] flyings = new Flying[]{gull, albatros, falcon};
         System.out.println(Flying.checkForUnique(flyings));
-
-
-
-
-
-
-
     }
 }
